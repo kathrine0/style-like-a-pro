@@ -1,1 +1,66 @@
-<p>winnie-form works!</p>
+<mat-card class="form-container" appearance="raised">
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label> 🍯 Hunny Pot Count (The Good Stuff) </mat-label>
+        <input matInput
+          type="number"
+          placeholder="How many pots of hunny?"
+          [formControl]="winnieForm.controls.hunnyPotCount"
+        />
+        <mat-icon matSuffix>local_cafe</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label> 🐯 Tigger's Bounce Factor </mat-label>
+        <mat-select
+          placeholder="Choose Tigger's energy level..."
+          [formControl]="winnieForm.controls.tiggerBounce"
+        >
+          <mat-option *ngFor="let level of energyLevels" [value]="level.value">
+            {{ level.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="checkbox-container">
+        <mat-checkbox [formControl]="winnieForm.controls.eeyoreMood">
+          <div class="checkbox-content">
+            <div class="checkbox-header">🫏 <strong>Eeyore's Mood</strong></div>
+            <div class="checkbox-description">Is his little house standing up today?</div>
+          </div>
+        </mat-checkbox>
+      </div>
+
+      <div class="slider-container">
+        <div class="field-header">🦘 <strong>Kanga's Pouch Fullness Level</strong></div>
+        <mat-slider min="0" max="100" step="5" showTickMarks discrete>
+          <input matSliderThumb [formControl]="winnieForm.controls.kangaPouch" />
+        </mat-slider>
+
+        <div class="slider-labels">
+          <span>Empty (0)</span>
+          <span>{{ winnieForm.controls.kangaPouch.value }}</span>
+          <span>Full (100)</span>
+        </div>
+      </div>
+
+      <mat-form-field>
+        <mat-label> 🍃 Date of Last Important Thought </mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="dd/mm/yyyy"
+          [formControl]="winnieForm.controls.importantThought"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit">
+        <mat-icon>send</mat-icon>
+        Send to Christopher Robin
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

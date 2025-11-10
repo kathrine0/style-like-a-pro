@@ -1,3 +1,13 @@
+<button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'">
+  @if (isDarkMode()) {
+    ☀️ Light Mode
+  } @else {
+    🌙 Dark Mode
+  }
+</button>
+
 <div class="container">
-  <app-winnie-form></app-winnie-form>
+    <app-override-api-styles>
+      <app-winnie-form></app-winnie-form>
+    </app-override-api-styles>
 </div>

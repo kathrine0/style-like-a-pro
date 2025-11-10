@@ -1,0 +1,41 @@
+@use '@angular/material' as mat;
+
+:host {
+  @include mat.card-overrides((
+    elevated-container-shape: var(--mat-sys-corner-large),
+    elevated-container-color: var(--mat-sys-surface-container-lowest),
+    elevated-container-elevation: var(--mat-sys-level5),
+  ));
+
+  @include mat.form-field-overrides((
+    outlined-container-shape: var(--mat-sys-corner-small),
+    outlined-outline-color: var(--mat-sys-outline-variant),
+    outlined-outline-width: 2px,
+    trailing-icon-color: var(--mat-sys-primary-fixed-dim),
+  ));
+
+  @include mat.select-overrides((
+    enabled-arrow-color: var(--mat-sys-secondary),
+  ));
+
+  @include mat.checkbox-overrides((
+    selected-icon-color: var(--mat-sys-tertiary),
+    selected-focus-icon-color: var(--mat-sys-tertiary),
+    selected-pressed-icon-color: var(--mat-sys-tertiary),
+    selected-hover-icon-color: var(--mat-sys-tertiary),
+  ));
+
+  @include mat.datepicker-overrides((
+    toggle-icon-color: var(--mat-sys-tertiary),
+  ));
+
+  @include mat.button-overrides((
+    filled-container-color: var(--mat-sys-primary-container),
+    filled-label-text-color: var(--mat-sys-on-primary-container),
+  ));
+
+  @include mat.slider-overrides((
+    active-track-color: var(--mat-sys-inverse-primary),
+  ));
+
+}
